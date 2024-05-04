@@ -85,7 +85,7 @@ for character in genshin_characters:
             
             for illust in json_result.illusts:
                 url = illust.image_urls.medium
-                api.download(url, path=genshin_characters_map[character])
+                api.download(url, path="dataset/" + genshin_characters_map[character])
                 count += 1
             print(count)
         
