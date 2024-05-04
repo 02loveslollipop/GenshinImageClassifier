@@ -2,5 +2,6 @@
 /processed_images
 /test_dataset
 /processed_images_test
+/__pycache__
 token.yaml
 *.code-workspace
