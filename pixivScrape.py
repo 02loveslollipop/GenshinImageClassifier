@@ -7,7 +7,7 @@ import yaml
 with open("token.yaml", "r") as file:
     token = yaml.safe_load(file)
     access_token = token["access_token"]
-    refresh_token = token[c]
+    refresh_token = token["refresh_token"]
 
 api = AppPixivAPI()
 api.set_auth(access_token=access_token, refresh_token=refresh_token)
