@@ -1,5 +1,4 @@
-'''Convert the dataset images to square images of size 256x256 stretched to fit the square shape'''
-
+# Description: This script is used to convert the images in the dataset folder to 256x256 pixels and save them in the processed_images folder
 import os
 from PIL import Image
 import numpy as np
