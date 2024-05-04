@@ -1,3 +1,4 @@
+# Description: Pixiv OAuth2 authentication script. By: ZipFile . Source: https://gist.github.com/ZipFile/c9ebedb224406f4f11845ab700124362#file-pixiv_auth-py. Modified by: 02loveslollipop
 from argparse import ArgumentParser
 from base64 import urlsafe_b64encode
 from hashlib import sha256
@@ -6,6 +7,7 @@ from secrets import token_urlsafe
 from sys import exit
 from urllib.parse import urlencode
 from webbrowser import open as open_url
+import yaml
 
 import requests
 
@@ -44,6 +46,8 @@ def print_auth_token_response(response):
         pprint(data)
         exit(1)
 
+    with open("token.yaml", "w") as file:
+        yaml.dump({"access_token": access_token, "refresh_token": refresh_token}, file)
     print("access_token:", access_token)
     print("refresh_token:", refresh_token)
     print("expires_in:", data.get("expires_in", 0))
