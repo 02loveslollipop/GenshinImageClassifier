@@ -1,4 +1,6 @@
 /dataset
 /processed_images
+/test_dataset
+/processed_images_test
 token.yaml
 *.code-workspace
