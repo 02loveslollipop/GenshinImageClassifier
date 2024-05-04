@@ -6,7 +6,7 @@ import os
 import cv2
 
 class GenshinDataSet(Dataset):
-    def __init__(self, directory: str, transforms: Compose =None ) -> None:
+    def __init__(self, directory: str, transforms: Compose =None) -> None:
         self.directory = directory # path to the dataset directory
         self.characters = os.listdir(directory) # List of characters as folder names
         self.transforms = transforms # Image transformations

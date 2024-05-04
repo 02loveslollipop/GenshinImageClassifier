@@ -13,8 +13,9 @@ with open("token.yaml", "r") as file: # Load the access token and refresh token 
 api = AppPixivAPI() # Initialize the Pixiv API
 api.set_auth(access_token=access_token, refresh_token=refresh_token) # Set the authentication tokens
 
-n = 300 # Number of images to download for each character
-resultFolder = "dataset" # Folder to save the images
+offset = 300 # Offset for the images
+n = 90 # Number of images to download for each character
+resultFolder = "test_dataset" # Folder to save the images
 
 if resultFolder == "": # If the result folder is not specified, save the images in the root directory of the script
     path = resultFolder
@@ -71,7 +72,7 @@ genshin_characters_map = { # Mapping of Genshin Impact characters to their corre
 
 for character in genshin_characters: # Loop through the list of Genshin Impact characters to download images for each character
     print(f"===================={character}====================")
-    count = 0
+    count = offset # Initialize the count of downloaded images for the character
     try: # Try to create a folder for the character if it does not exist
         os.mkdir(path + genshin_characters_map[character])
     except FileExistsError:
@@ -85,7 +86,7 @@ for character in genshin_characters: # Loop through the list of Genshin Impact c
         print(f"{genshin_characters_map[character]} folder already has {len(os.listdir(path + genshin_characters_map[character]))} images, resuming download")
         count = len(os.listdir(path + genshin_characters_map[character]))
     
-    while count < n: # Loop until n images are downloaded for the character
+    while count < (n + offset): # Loop until n images are downloaded for the character
         try:
             json_result = api.search_illust(character,sort="popular_desc",req_auth=True,offset=count) # request the images from pixiv based on the tag
             
