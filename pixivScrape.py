@@ -22,7 +22,7 @@ if resultFolder == "": # If the result folder is not specified, save the images 
 else: # If the result folder is specified, save the images in the specified folder  
     if resultFolder not in os.listdir(): # Check if the folder exists, if not, create the folder
         os.mkdir(resultFolder)
-    path = resultFolder + "/" # Set the path to the specified folder
+    path = f"{resultFolder}/" # Set the path to the specified folder
 
 genshin_characters = [ # List of Genshin Impact characters to search for
     "アルレッキーノ(原神)", # Arlechino
@@ -74,17 +74,17 @@ for character in genshin_characters: # Loop through the list of Genshin Impact c
     print(f"===================={character}====================")
     count = offset # Initialize the count of downloaded images for the character
     try: # Try to create a folder for the character if it does not exist
-        os.mkdir(path + genshin_characters_map[character])
+        os.mkdir(f"{path}{genshin_characters_map[character]}")
     except FileExistsError:
         print(f"{genshin_characters_map[character]} folder already exists")
         pass
 
-    if len(path + os.listdir(genshin_characters_map[character])) == n: # Check if the folder already has n images and skip the character
+    if len(os.listdir(f"{path}{genshin_characters_map[character]}")) == n: # Check if the folder already has n images and skip the character
         print(f"{genshin_characters_map[character]} folder already has {n} images")
         continue
-    elif len(os.listdir(path + genshin_characters_map[character])) > 0: # Check if the folder already has images and resume downloading from that state
-        print(f"{genshin_characters_map[character]} folder already has {len(os.listdir(path + genshin_characters_map[character]))} images, resuming download")
-        count = len(os.listdir(path + genshin_characters_map[character]))
+    elif len(os.listdir(f"{path}{genshin_characters_map[character]}")) > 0: # Check if the folder already has images and resume downloading from that state
+        print(f"Resuming download for {genshin_characters_map[character]}")
+        count = len(os.listdir(f"{path}{genshin_characters_map[character]}"))
     
     while count < (n + offset): # Loop until n images are downloaded for the character
         try:
@@ -95,7 +95,7 @@ for character in genshin_characters: # Loop through the list of Genshin Impact c
             
             for illust in json_result.illusts: # Loop through the images and download them
                 url = illust.image_urls.medium # Get the image URL
-                api.download(url, path="dataset/" + genshin_characters_map[character]) # Download the image
+                api.download(url, path=f"{path}{genshin_characters_map[character]}") # Download the image
                 count += 1 # Increment the count of downloaded images
             print(count) # Print the count of downloaded images
         
