@@ -26,7 +26,6 @@ class GenshinDataSet(Dataset):
         label = self.labels[index]  # Get the label
 
         if image.mode == 'L':  # Check for grayscale mode ('L')
-                    print(f'Converting {self.images[index]} to RGB mode')
                     image = image.convert('RGB')  # Convert to RGB mode
         
         if self.transforms is not None:
