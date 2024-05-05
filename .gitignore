@@ -3,5 +3,7 @@
 /test_dataset
 /processed_images_test
 /__pycache__
+*.pyc
 token.yaml
 *.code-workspace
+models

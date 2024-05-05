@@ -10,7 +10,7 @@ originPath = "test_dataset/" #path to the dataset folder
 
 def convert_to_square(image_path,character, id): #convert the image to a square image and save it in the processed_images folder
     img = Image.open(image_path) #open the image
-    img = img.resize((256, 256)) #resize the image to 256x256 pixels
+    img = img.resize((128, 128)) #resize the image to 256x256 pixels
     img.save(resultPath + character + "/" + str(id) + ".png") #save the image in the processed_images folder   
 
 if __name__ == "__main__":

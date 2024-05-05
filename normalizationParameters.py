@@ -7,8 +7,7 @@ import torch
 from torchvision import transforms
 from dataset import GenshinDataSet
 
-all_transforms = transforms.Compose([transforms.Resize((32,32)),
-                                     transforms.ToTensor()
+all_transforms = transforms.Compose([transforms.ToTensor()
                                      ])
 dataset = GenshinDataSet(directory='processed_images', transforms=all_transforms)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=32, shuffle=True)
