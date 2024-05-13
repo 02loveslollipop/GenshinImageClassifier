@@ -13,8 +13,8 @@ with open("token.yaml", "r") as file: # Load the access token and refresh token 
 api = AppPixivAPI() # Initialize the Pixiv API
 api.set_auth(access_token=access_token, refresh_token=refresh_token) # Set the authentication tokens
 
-offset = 300 # Offset for the images
-n = 90 # Number of images to download for each character
+offset = 1600 # Offset for the images
+n = 480 # Number of images to download for each character
 resultFolder = "test_dataset" # Folder to save the images
 
 if resultFolder == "": # If the result folder is not specified, save the images in the root directory of the script
@@ -25,26 +25,13 @@ else: # If the result folder is specified, save the images in the specified fold
     path = f"{resultFolder}/" # Set the path to the specified folder
 
 genshin_characters = [ # List of Genshin Impact characters to search for
+    # 500 per character
     "アルレッキーノ(原神)", # Arlechino
     "フリーナ", # Furina
     "雷電将軍", # Raiden Shogun
     "八重神子", # Guuji Yae
     "神里綾華",  # Kamisato Ayaka
-    "千織(原神)", # Chiori
-    "シュヴルーズ", # Chevreuse
-    "シャルロット(原神)", # Charlotte
     "甘雨(原神)", # Ganyu
-    "胡桃(原神)", # Hu Tao
-    "刻晴", # Keqing
-    "ニィロウ", # Nilou
-    "ナヴィア", # Navia
-    "珊瑚宮心海", # Sangonomiya Kokomi
-    "煙緋", # Yanfei
-    "夜兰", # Yelan
-    "ノエル(原神)", # Noel
-    "スクロース(原神)", # Sucrose
-    "ディシア", # Dehya
-    "ジン(原神)" #Jean
 ]
 
 genshin_characters_map = { # Mapping of Genshin Impact characters to their corresponding folder names
@@ -53,21 +40,7 @@ genshin_characters_map = { # Mapping of Genshin Impact characters to their corre
     "雷電将軍": "Raiden Shogun",
     "八重神子": "Guuji Yae",
     "神里綾華": "Kamisato Ayaka",
-    "千織(原神)": "Chiori",
-    "シュヴルーズ": "Chevreuse",
-    "シャルロット(原神)": "Charlotte",
-    "甘雨(原神)": "Ganyu",
-    "胡桃(原神)": "Hu Tao",
-    "刻晴": "Keqing",
-    "ニィロウ": "Nilou",
-    "ナヴィア": "Navia",
-    "珊瑚宮心海": "Sangonomiya Kokomi",
-    "煙緋": "Yanfei",
-    "夜兰": "Yelan",
-    "ノエル(原神)": "Noel",
-    "スクロース(原神)": "Sucrose",
-    "ディシア": "Dehya",
-    "ジン(原神)": "Jean"
+    "甘雨(原神)": "Ganyu"
 }
 
 for character in genshin_characters: # Loop through the list of Genshin Impact characters to download images for each character

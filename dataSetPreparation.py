@@ -4,8 +4,8 @@ from PIL import Image
 import numpy as np
 import multiprocessing as mp
 
-resultPath = "processed_images_test/" #path to save the processed images
-originPath = "test_dataset/" #path to the dataset folder
+resultPath = "processed_images/" #path to save the processed images
+originPath = "dataset/" #path to the dataset folder
 
 
 def convert_to_square(image_path,character, id): #convert the image to a square image and save it in the processed_images folder

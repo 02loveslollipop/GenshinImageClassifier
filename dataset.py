@@ -18,11 +18,11 @@ class GenshinDataSet(Dataset):
 
             for image_file in os.listdir(category_path):  # Loop through the images in the character folder
                 image_path = os.path.join(category_path, image_file)
-                self.images.append(Image.open(image_path))                
+                self.images.append(image_path)  # Append image path           
                 self.labels.append(label)  # Append numerical label
 
     def __getitem__(self, index) -> tuple[any, torch.Tensor]:  # Get the image and label at the specified index
-        image = self.images[index]  # Get the image
+        image = Image.open(self.images[index]) # Open the image
         label = self.labels[index]  # Get the label
 
         if image.mode == 'L':  # Check for grayscale mode ('L')

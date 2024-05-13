@@ -3,6 +3,7 @@
 /test_dataset
 /processed_images_test
 /__pycache__
+/128x128-20
 *.pyc
 token.yaml
 *.code-workspace
