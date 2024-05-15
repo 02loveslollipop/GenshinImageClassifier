@@ -8,3 +8,7 @@
 token.yaml
 *.code-workspace
 models
+deploy/arlecchino.jpeg
+deploy/furina.jpeg
+deploy/__pycache__/
+flagged/
