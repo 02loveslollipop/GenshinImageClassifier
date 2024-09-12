@@ -28,5 +28,3 @@ conda env create -f environment.yml
 ```bash
 conda activate genshin-image-classifier
 ```
-4. TODO: Implement local deployment
-
